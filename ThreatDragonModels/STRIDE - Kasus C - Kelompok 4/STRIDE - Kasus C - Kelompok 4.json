@@ -596,6 +596,13 @@
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1601,58 +1608,6 @@
               "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
             },
             "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "QR tiket",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "QR tiket"
-            ],
-            "id": "dbad38af-ceb5-4ea3-be38-60e28cf581dc",
-            "source": {
-              "cell": "c36bd4e3-c2ff-4aa2-a6c6-fad84585d713",
-              "port": "55d4f334-d79f-4147-a5c1-d540a12d89de"
-            },
-            "target": {
-              "cell": "fa29320b-03da-447f-a71b-97032af2232d",
-              "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
-            },
-            "vertices": [
-              {
-                "x": 720,
-                "y": -370
-              }
-            ]
           }
         ],
         "description": "siber"
