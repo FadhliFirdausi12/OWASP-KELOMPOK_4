@@ -466,11 +466,13 @@
                 "text": "Database Ticket\n"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -567,13 +569,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "61ca707a-df9d-4f61-b477-2c7d86b6afd2",
+                  "title": "Penyangkalan check-in karena jejak audit tidak memadai",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Jika terjadi sengketa (peserta mengaku belum masuk, atau petugas diduga meloloskan tiket palsu) dan Database Tiket hanya menyimpan status terakhir tanpa mencatat petugas, pintu, dan waktu, maka kejadian tidak dapat diverifikasi. Dampak: sengketa tidak dapat diselesaikan dan penyalahgunaan petugas sulit dibuktikan. Risiko: kemungkinan 2 x dampak 2 = 4. Asumsi: tidak ada log riwayat check-in.",
+                  "mitigation": "Catat setiap percobaan validasi (sukses maupun gagal) dalam log append-only berisi ID tiket, ID petugas, pintu, waktu server, dan hasil. Batasi akses ubah/hapus log dan simpan terpisah dari tabel status tiket.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -590,8 +612,8 @@
                 "text": "Portal Web"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -688,19 +710,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
+              "threats": [
+                {
+                  "id": "3c5ca9e9-5a6a-4178-8ea4-f04b682ac365",
+                  "title": "Kebocoran tiket dan data peserta lain lewat manipulasi ID (IDOR)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Jika peserta dapat mengganti ID tiket atau registrasi pada URL/request di Portal Web dan backend tidak memeriksa kepemilikan objek, maka ia dapat melihat tiket serta data pribadi peserta lain. Dampak: kebocoran data pribadi dan QR tiket orang lain dapat disalin. Risiko: kemungkinan 2 x dampak 3 = 6. Asumsi: ID registrasi/tiket pada URL dapat diubah pengguna. Alur terkait: Tampilkan tiket.",
+                  "mitigation": "Validasi otorisasi pemilik objek pada setiap request (tiket hanya bisa dilihat pemiliknya). Gunakan ID acak yang sulit ditebak. Berikan respons error seragam untuk objek yang tidak ada maupun tidak diizinkan.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "6"
+                }
               ],
-              "name": null
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -717,8 +754,8 @@
                 "text": "Aplikasi Pemindai"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -815,12 +852,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "7feae8df-d1c5-44ba-9291-3883c6522ddb",
+                  "title": "Pengambilalihan akun petugas lewat kredensial lemah atau bocor",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Jika penyerang memperoleh kredensial petugas (phishing, credential stuffing, password lemah) dan login ke Aplikasi Pemindai, maka ia dapat meloloskan atau menolak peserta atas nama petugas sah. Dampak: check-in tidak sah dan sulit dilacak ke pelaku sebenarnya. Risiko: kemungkinan 2 x dampak 3 = 6. Asumsi: login petugas hanya username/password tanpa MFA. Alur terkait: Login petugas.",
+                  "mitigation": "Wajibkan MFA atau kode sekali pakai untuk petugas. Batasi percobaan login (rate limit/lockout). Terapkan masa berlaku sesi pendek dan sediakan fitur admin untuk mencabut sesi petugas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "6"
+                },
+                {
+                  "id": "ba98cce0-e801-46e8-9f60-c178581c91ff",
+                  "title": "Manipulasi parameter permintaan validasi (ID acara atau status)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Jika penyerang atau petugas nakal dapat mengubah parameter request yang dikirim Aplikasi Pemindai (mis. ID acara atau status check-in), maka tiket acara lain bisa diterima atau status diubah tanpa melalui validasi server yang benar. Dampak: integritas status check-in rusak dan tiket acara lain dapat dipakai. Risiko: kemungkinan 2 x dampak 2 = 4. Asumsi: aplikasi pemindai mengirim parameter yang dapat diubah klien. Alur terkait: ID tiket + sesi petugas.",
+                  "mitigation": "Backend menentukan acara dan pintu dari sesi petugas, bukan dari parameter klien. Klien hanya mengirim ID tiket, dan semua keputusan validasi serta perubahan status dilakukan di server dengan validasi input.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -837,8 +909,8 @@
                 "text": "Backend Ticket"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -935,12 +1007,73 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2152febb-8492-4929-b58f-09acf84e6fe2",
+                  "title": "Pemalsuan tiket dengan menebak atau menyalin ID QR",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Jika penyerang dapat menebak atau membuat ID tiket valid (misalnya ID berurutan) lalu menyajikannya sebagai QR di pintu masuk, maka Backend Tiket akan menerimanya sebagai tiket sah sehingga penyerang dapat check-in sebagai peserta sah dan menghabiskan jatah tiket orang lain. Dampak: peserta tidak berhak masuk, tiket peserta asli ditolak. Risiko: kemungkinan 2 x dampak 3 = 6. Asumsi: QR hanya berisi ID tiket tanpa tanda tangan digital. Alur terkait: ID tiket + sesi petugas.",
+                  "mitigation": "Gunakan ID tiket acak dari CSPRNG (minimal 128 bit, mis. UUIDv4). Tambahkan tanda tangan/HMAC pada payload QR. Backend selalu memverifikasi ID dan acara terhadap Database Tiket sebelum menyatakan valid.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "6"
+                },
+                {
+                  "id": "c2e1a955-12f3-413e-8613-452c770fa0a7",
+                  "title": "Check-in ganda akibat race condition antar-pintu",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Jika dua pintu memindai tiket yang sama hampir bersamaan dan Backend Tiket memeriksa status lalu memperbaruinya dalam dua langkah terpisah, maka keduanya dapat dinyatakan valid sehingga satu tiket dipakai lebih dari sekali. Dampak: aturan \"satu tiket satu check-in\" dilanggar dan tiket bisa dibagikan ke banyak orang. Risiko: kemungkinan 2 x dampak 2 = 4. Asumsi: beberapa pintu memindai paralel tanpa mekanisme locking. Alur terkait: Cek & update status.",
+                  "mitigation": "Lakukan update status secara atomik (UPDATE ... WHERE status='belum_checkin', lalu periksa jumlah baris yang berubah) atau gunakan transaksi dengan locking. Tolak permintaan yang gagal mengubah status dan tampilkan hasil \"sudah check-in\" ke petugas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "4"
+                },
+                {
+                  "id": "d5d97f86-0061-4ae8-a209-f5163dbea353",
+                  "title": "Banjir request registrasi dan validasi menurunkan ketersediaan Backend Tiket",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Jika penyerang atau bot dapat mengirim registrasi massal atau request validasi berulang ke Backend Tiket, maka layanan melambat atau berhenti, padahal pada hari acara semua pintu bergantung pada koneksi ke backend. Dampak: antrean peserta menumpuk, check-in terhenti, dan kuota registrasi habis oleh bot. Risiko: kemungkinan 2 x dampak 3 = 6. Asumsi: portal registrasi tanpa CAPTCHA atau rate limiting.",
+                  "mitigation": "Terapkan rate limiting per IP/akun/sesi, CAPTCHA pada registrasi, WAF atau auto-scaling, serta prosedur cadangan hari-H yang terkontrol dan tercatat (mis. daftar tiket cadangan per pintu).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "6"
+                },
+                {
+                  "id": "e7296cde-769a-43c2-8fe9-2ba98e08ad61",
+                  "title": "Akses endpoint dashboard admin oleh pengguna non-admin",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Jika petugas atau peserta yang sudah login dapat memanggil endpoint dashboard admin pada Backend Tiket (mis. menebak URL /admin) karena pengecekan peran hanya dilakukan di sisi tampilan, maka ia dapat melihat seluruh daftar peserta dan status tiket. Dampak: kebocoran data seluruh peserta dan ringkasan kehadiran. Risiko: kemungkinan 2 x dampak 3 = 6. Asumsi: otorisasi peran belum diterapkan di server untuk semua endpoint. Alur terkait: Permintaan dashboard.",
+                  "mitigation": "Terapkan RBAC di sisi server untuk setiap endpoint dengan prinsip deny-by-default. Uji akses per peran (peserta, petugas, admin) dan pisahkan token/sesi antara petugas dan admin.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "6"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1091,6 +1224,10 @@
               {
                 "x": 470,
                 "y": -160
+              },
+              {
+                "x": 360,
+                "y": -190
               },
               {
                 "x": 290,
@@ -1464,6 +1601,58 @@
               "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
             },
             "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "QR tiket",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "QR tiket"
+            ],
+            "id": "dbad38af-ceb5-4ea3-be38-60e28cf581dc",
+            "source": {
+              "cell": "c36bd4e3-c2ff-4aa2-a6c6-fad84585d713",
+              "port": "55d4f334-d79f-4147-a5c1-d540a12d89de"
+            },
+            "target": {
+              "cell": "fa29320b-03da-447f-a71b-97032af2232d",
+              "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
+            },
+            "vertices": [
+              {
+                "x": 720,
+                "y": -370
+              }
+            ]
           }
         ],
         "description": "siber"
@@ -1471,6 +1660,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Pak Satria Mandala",
-    "threatTop": 1
+    "threatTop": 12
   }
 }
