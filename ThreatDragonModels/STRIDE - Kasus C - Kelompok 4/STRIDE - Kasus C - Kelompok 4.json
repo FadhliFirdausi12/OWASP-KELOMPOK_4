@@ -565,7 +565,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Database Ticket\n",
-              "description": "",
+              "description": "Asumsi : DB hanya simpan status terakhir",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -713,7 +713,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Portal Web",
-              "description": "",
+              "description": "Asumsi : tanpa CAPTCHA/rate limit, ID di URL tidak dicek",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -855,7 +855,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Aplikasi Pemindai",
-              "description": "",
+              "description": "Asumsi : login petugas tanpa MFA, parameter bisa diubah klien",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1010,7 +1010,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Backend Ticket",
-              "description": "",
+              "description": "Asumsi : HTTPS, QR tanpa tanda tangan, update tanpa locking, otorisasi dashboard, tanpa rate limit",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
