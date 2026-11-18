@@ -694,6 +694,13 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1464,6 +1471,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Pak Satria Mandala",
-    "threatTop": 0
+    "threatTop": 1
   }
 }
