@@ -83,21 +83,21 @@
             ],
             "id": "01aebf74-6e31-4815-a8cb-9171c44bdd55",
             "source": {
-              "x": 460,
-              "y": -680
+              "x": 480,
+              "y": -770
             },
             "target": {
-              "x": 340,
-              "y": -110
+              "x": 310,
+              "y": -80
             },
             "vertices": [
               {
-                "x": 340,
-                "y": -170
+                "x": 390,
+                "y": -370
               },
               {
                 "x": 340,
-                "y": -110
+                "y": -170
               }
             ]
           },
@@ -337,8 +337,8 @@
           },
           {
             "position": {
-              "x": 67.5,
-              "y": -170
+              "x": 77.5,
+              "y": -80
             },
             "size": {
               "width": 112.5,
@@ -1008,58 +1008,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Tampilkan tiket",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Tampilkan tiket"
-            ],
-            "id": "fdb2cb6c-c260-4a43-8eb5-dde5d520e3bc",
-            "source": {
-              "cell": "a4b17745-116b-40d8-8827-564c0befa91c",
-              "port": "d781ab6c-51f6-44d8-a91d-6e2d8de3d43c"
-            },
-            "target": {
-              "cell": "c36bd4e3-c2ff-4aa2-a6c6-fad84585d713",
-              "port": "b09effa2-4476-48bb-8f81-c00c139a0912"
-            },
-            "vertices": [
-              {
-                "x": 940,
-                "y": -650
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Login petugas",
               "description": "",
               "outOfScope": false,
@@ -1163,58 +1111,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Tiket + QR code",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Tiket + QR code"
-            ],
-            "id": "a776d41f-b912-4cd7-b421-58474f36434d",
-            "source": {
-              "cell": "03c8d48d-04be-45b0-ac25-615c79c1de8f",
-              "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
-            },
-            "target": {
-              "cell": "a4b17745-116b-40d8-8827-564c0befa91c",
-              "port": "dca127b4-1288-4ef1-a551-eec6bd0671a5"
-            },
-            "vertices": [
-              {
-                "x": 420,
-                "y": -530
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Cek & update status",
               "description": "",
               "outOfScope": false,
@@ -1246,6 +1142,321 @@
                 "y": -420
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Hasil validasi",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Hasil validasi"
+            ],
+            "id": "37dfbd2e-5ac4-4b30-8497-f873a1888d06",
+            "source": {
+              "cell": "03c8d48d-04be-45b0-ac25-615c79c1de8f",
+              "port": "dca127b4-1288-4ef1-a551-eec6bd0671a5"
+            },
+            "target": {
+              "cell": "fa29320b-03da-447f-a71b-97032af2232d",
+              "port": "d781ab6c-51f6-44d8-a91d-6e2d8de3d43c"
+            },
+            "vertices": [
+              {
+                "x": 220,
+                "y": -620
+              },
+              {
+                "x": 1050,
+                "y": -680
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Tampilkan tiket",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Tampilkan tiket"
+            ],
+            "id": "fdb2cb6c-c260-4a43-8eb5-dde5d520e3bc",
+            "source": {
+              "cell": "a4b17745-116b-40d8-8827-564c0befa91c",
+              "port": "d781ab6c-51f6-44d8-a91d-6e2d8de3d43c"
+            },
+            "target": {
+              "cell": "c36bd4e3-c2ff-4aa2-a6c6-fad84585d713",
+              "port": "b09effa2-4476-48bb-8f81-c00c139a0912"
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": -650
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Permintaan dashboard",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Permintaan dashboard"
+            ],
+            "id": "56270d0b-780f-43d7-ae06-5a2661daf6a8",
+            "source": {
+              "cell": "0a369811-ea24-4f0c-a741-ba748eff478c",
+              "port": "b09effa2-4476-48bb-8f81-c00c139a0912"
+            },
+            "target": {
+              "cell": "03c8d48d-04be-45b0-ac25-615c79c1de8f",
+              "port": "d781ab6c-51f6-44d8-a91d-6e2d8de3d43c"
+            },
+            "vertices": [
+              {
+                "x": 310,
+                "y": -420
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Ringkasan kehadiran",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Ringkasan kehadiran"
+            ],
+            "id": "8029512c-2cd2-4599-8419-7c48b9682dd0",
+            "source": {
+              "cell": "03c8d48d-04be-45b0-ac25-615c79c1de8f",
+              "port": "dca127b4-1288-4ef1-a551-eec6bd0671a5"
+            },
+            "target": {
+              "cell": "0a369811-ea24-4f0c-a741-ba748eff478c",
+              "port": "050b9c10-fa82-44ec-ab26-406d964e255d"
+            },
+            "vertices": [
+              {
+                "x": -20,
+                "y": -300
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Tiket + QR code",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Tiket + QR code"
+            ],
+            "id": "a776d41f-b912-4cd7-b421-58474f36434d",
+            "source": {
+              "cell": "03c8d48d-04be-45b0-ac25-615c79c1de8f",
+              "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
+            },
+            "target": {
+              "cell": "a4b17745-116b-40d8-8827-564c0befa91c",
+              "port": "dca127b4-1288-4ef1-a551-eec6bd0671a5"
+            },
+            "vertices": [
+              {
+                "x": 370,
+                "y": -540
+              },
+              {
+                "x": 420,
+                "y": -530
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Permintaan terbit tiket",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Permintaan terbit tiket"
+            ],
+            "id": "846195f1-7bef-4973-93b7-1ee8489cd483",
+            "source": {
+              "cell": "a4b17745-116b-40d8-8827-564c0befa91c",
+              "port": "11ffc5a1-5e76-48ac-bd53-837a9d0535fe"
+            },
+            "target": {
+              "cell": "03c8d48d-04be-45b0-ac25-615c79c1de8f",
+              "port": "b21e48fa-9929-4a3e-b7e2-b5cc1f61355d"
+            },
+            "vertices": []
           }
         ],
         "description": "siber"
