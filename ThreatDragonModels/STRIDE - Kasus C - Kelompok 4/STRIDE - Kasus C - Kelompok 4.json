@@ -3,8 +3,8 @@
   "release_version": "2.6.2",
   "released_at": "2026-11-18",
   "summary": {
-    "title": "STRIDE - Kasus C - Kelompok 4",
-    "owner": "Kelompok 4",
+    "title": "STRIDE - Kasus C - Kelompok 6",
+    "owner": "Kelompok 6",
     "description": "Sistem E-Ticket dan Validasi Tiket Acara adalah sistem digital yang mengelola siklus hidup tiket seminar mulai dari registrasi peserta hingga pemantauan kehadiran. Sistem ini melibatkan tiga aktor utama peserta, petugas pintu masuk, dan admin acara yang berinteraksi dengan portal web, aplikasi pemindai, backend tiket, dan database tiket. Proses dimulai saat peserta mendaftar melalui portal web dan memperoleh tiket digital ber-QR code unik untuk satu kali penggunaan. Pada hari acara, petugas pintu masuk yang telah login memindai QR code secara paralel melalui aplikasi pemindai untuk divalidasi secara real-time oleh backend sebelum status tiket diperbarui menjadi check-in. Seluruh data kehadiran dan status tiket kemudian dirangkum serta dipantau oleh admin acara melalui dashboard web.",
     "id": 0
   },
